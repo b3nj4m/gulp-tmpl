@@ -1,5 +1,6 @@
 # gulp-tmpl
-> Lodash/Underscore templates plugin for gulp 3
+
+Lodash/Underscore templates plugin for gulp 3
 
 ## Usage
 
@@ -37,3 +38,7 @@ gulp.task('templates', function(){
 Type: `Object`
 
 Compiler options to pass to `_.template`.
+
+## Credit
+
+All the credit goes too [Larry Davis](https://github.com/lazd). This plugin is heavily inspired (read copy) from his [gulp-handlebars](https://github.com/lazd/gulp-handlebars) plugin.
