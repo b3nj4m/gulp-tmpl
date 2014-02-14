@@ -41,4 +41,4 @@ Compiler options to pass to `_.template`.
 
 ## Credit
 
-All the credit goes too [Larry Davis](https://github.com/lazd). This plugin is heavily inspired (read copy) from his [gulp-handlebars](https://github.com/lazd/gulp-handlebars) plugin.
+All the credit goes to [Larry Davis](https://github.com/lazd). This plugin is heavily inspired (read copied) from his [gulp-handlebars](https://github.com/lazd/gulp-handlebars) plugin.
