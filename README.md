@@ -19,7 +19,7 @@ var template = require('gulp-tmpl');
 var declare = require('gulp-declare');
 
 gulp.task('templates', function(){
-  gulp.src(['client/templates/*.hbs'])
+  gulp.src(['client/templates/*.html'])
     .pipe(template())
     .pipe(declare({
       namespace: 'MyApp.templates'
