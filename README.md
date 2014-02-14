@@ -1,4 +1,4 @@
-# gulp-tmpl [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
+# gulp-tmpl
 > Lodash/Underscore templates plugin for gulp 3
 
 ## Usage
@@ -11,7 +11,7 @@ npm install --save-dev gulp-tmpl
 
 ## Compiling to a namespace for the browser
 
-[gulp-declare] can be used to compile templates for the browser. Just pipe the output of gulp-tmpl to gulp-declare:
+[gulp-declare](https://github.com/lazd/gulp-declare) can be used to compile templates for the browser. Just pipe the output of gulp-tmpl to gulp-declare:
 
 ```javascript
 var template = require('gulp-tmpl');
