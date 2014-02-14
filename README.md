@@ -1,5 +1,6 @@
-# gulp-tmpl [![NPM version][npm-image]][npm-url] [![Build status][travis-image]][travis-url]
-> Lodash/Underscore templates plugin for gulp 3
+# gulp-tmpl
+
+Lodash/Underscore templates plugin for gulp 3
 
 ## Usage
 
@@ -11,7 +12,7 @@ npm install --save-dev gulp-tmpl
 
 ## Compiling to a namespace for the browser
 
-[gulp-declare] can be used to compile templates for the browser. Just pipe the output of gulp-tmpl to gulp-declare:
+[gulp-declare](https://github.com/lazd/gulp-declare) can be used to compile templates for the browser. Just pipe the output of gulp-tmpl to gulp-declare:
 
 ```javascript
 var template = require('gulp-tmpl');
@@ -37,3 +38,7 @@ gulp.task('templates', function(){
 Type: `Object`
 
 Compiler options to pass to `_.template`.
+
+## Credit
+
+All the credit goes too [Larry Davis](https://github.com/lazd). This plugin is heavily inspired (read copy) from his [gulp-handlebars](https://github.com/lazd/gulp-handlebars) plugin.
