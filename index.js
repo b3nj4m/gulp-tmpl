@@ -1,25 +1,25 @@
-var es       = require('event-stream');
-var map      = require('vinyl-map');
-var rename   = require('gulp-rename');
+var es = require('event-stream');
 var template = require('lodash.template');
-var extend   = require('xtend');
+var extend = require('xtend');
 
-module.exports = function(options) {
+function tmpl(data, options) {
   options = extend({
-    compilerOptions: {},
+    compilerOptions: {}
   }, options);
 
-  var precompile = function(contents, path) {
-    return template(contents.toString(), false, options.compilerOptions).source;
+  var compile = function(contents) {
+    var result = template(contents.toString(), data, options.compilerOptions);
+    if (data) {
+      return result;
+    }
+    return result.source;
   };
 
-  var doRename = function(dir, base, ext) {
-    // Change the extension to .js
-    return base+'.js';
-  };
+  return es.map(function(data, cb) {
+    cb(null, compile(data.contents));
+  });
+}
 
-  return es.pipeline(
-    map(precompile),
-    rename(doRename)
-  );
-};
+tmpl.precompile = tmpl.bind(this, false);
+
+module.exports = tmpl;
