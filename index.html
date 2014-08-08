@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Gulp-tmpl : Precompile Lodash templates for the browser. Underscore ones too.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Gulp-tmpl</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/b3nj4m/gulp-tmpl">View on GitHub</a>
+
+          <h1 id="project_title">Gulp-tmpl</h1>
+          <h2 id="project_tagline">Precompile Lodash templates for the browser. Underscore ones too.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/b3nj4m/gulp-tmpl/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/b3nj4m/gulp-tmpl/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="gulp-tmpl" class="anchor" href="#gulp-tmpl"><span class="octicon octicon-link"></span></a>gulp-tmpl</h1>
+
+<p>Lodash/Underscore templates plugin for gulp 3</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>First, install <code>gulp-tmpl</code> as a development dependency:</p>
+
+<pre lang="shell"><code>npm install --save-dev gulp-tmpl
+</code></pre>
+
+<h2>
+<a name="compiling-to-a-namespace-for-the-browser" class="anchor" href="#compiling-to-a-namespace-for-the-browser"><span class="octicon octicon-link"></span></a>Compiling to a namespace for the browser</h2>
+
+<p><a href="https://github.com/lazd/gulp-declare">gulp-declare</a> can be used to compile templates for the browser. Just pipe the output of gulp-tmpl to gulp-declare:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-tmpl'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">declare</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-declare'</span><span class="p">);</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'templates'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">([</span><span class="s1">'client/templates/*.html'</span><span class="p">])</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">template</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">declare</span><span class="p">({</span>
+      <span class="nx">namespace</span><span class="o">:</span> <span class="s1">'MyApp.templates'</span>
+    <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="s1">'templates.js'</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s1">'build/js/'</span><span class="p">));</span>
+<span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h2>
+
+<h3>
+<a name="templateoptions" class="anchor" href="#templateoptions"><span class="octicon octicon-link"></span></a>template(options)</h3>
+
+<h4>
+<a name="optionscompileroptions" class="anchor" href="#optionscompileroptions"><span class="octicon octicon-link"></span></a>options.compilerOptions</h4>
+
+<p>Type: <code>Object</code></p>
+
+<p>Compiler options to pass to <code>_.template</code>.</p>
+
+<h2>
+<a name="credit" class="anchor" href="#credit"><span class="octicon octicon-link"></span></a>Credit</h2>
+
+<p>All the credit goes to <a href="https://github.com/lazd">Larry Davis</a>. This plugin is heavily inspired (read copied) from his <a href="https://github.com/lazd/gulp-handlebars">gulp-handlebars</a> plugin.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Gulp-tmpl maintained by <a href="https://github.com/b3nj4m">b3nj4m</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
