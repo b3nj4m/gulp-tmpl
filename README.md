@@ -10,34 +10,54 @@ First, install `gulp-tmpl` as a development dependency:
 npm install --save-dev gulp-tmpl
 ```
 
-## Compiling to a namespace for the browser
-
-[gulp-declare](https://github.com/lazd/gulp-declare) can be used to compile templates for the browser. Just pipe the output of gulp-tmpl to gulp-declare:
+## Compiling and executing the templates:
 
 ```javascript
 var template = require('gulp-tmpl');
-var declare = require('gulp-declare');
+var source = require('vinyl-source-stream');
 
 gulp.task('templates', function(){
-  gulp.src(['client/templates/*.html'])
-    .pipe(template())
-    .pipe(declare({
-      namespace: 'MyApp.templates'
-    }))
-    .pipe(concat('templates.js'))
-    .pipe(gulp.dest('build/js/'));
+  var data = {
+    someTmplVars: 'woo'
+  };
+
+  gulp.src(['client/templates/index.tpl'])
+    .pipe(template(data))
+    .pipe(source('index.html'))
+    .pipe(gulp.dest('build/html/'));
 });
 ```
 
+## Compiling to JS:
+
+```javascript
+var template = require('gulp-tmpl');
+
+gulp.task('templates', function(){
+  gulp.src(['client/templates/*.tpl'])
+    .pipe(template.precompile())
+    .pipe(gulp.dest('build/templates/'));
+});
+
+```
 
 ## API
 
-### template(options)
+### template(data, options)
+
+#### data
+Type: `Object`
+
+Data to pass to the compiled template when executing it.
 
 #### options.compilerOptions
 Type: `Object`
 
 Compiler options to pass to `_.template`.
+
+### template.precompile(options)
+
+(Same options as above)
 
 ## Credit
 
